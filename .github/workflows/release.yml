@@ -15,14 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
-        run: echo ${{ github.sha }} > Release.txt
-      - name: Test
-        run: cat Release.txt
+        run: |
+          mkdir csv-converter \
+            && cp *.php csv-converter \
+            && cp -r projects csv-converter \
+            && cp -r utils csv-converter \
+            && tar -zcf csv-converter.tar.gz csv-converter
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: |
-            Release.txt
-            README.md
+          files: csv-converter.tar.gz
 
