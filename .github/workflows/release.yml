@@ -19,6 +19,7 @@ jobs:
           mkdir csv-converter \
             && cp *.php csv-converter \
             && cp *.bash csv-converter \
+            && cp -r config csv-converter \
             && cp -r project csv-converter \
             && cp -r utils csv-converter \
             && tar -zcf csv-converter.tar.gz csv-converter
