@@ -18,7 +18,7 @@ jobs:
         run: |
           mkdir csv-converter \
             && cp *.php csv-converter \
-            && cp -r projects csv-converter \
+            && cp -r project csv-converter \
             && cp -r utils csv-converter \
             && tar -zcf csv-converter.tar.gz csv-converter
       - name: Release
